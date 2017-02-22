@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+var ip = '';
+
+function checkIPv6(v)
+{
+    return (/::/.test(v) ? /^([\da-f]{1,4}(:|::)){1,6}[\da-f]{1,4}$/i.test(v) : /^([\da-f]{1,4}:){7}[\da-f]{1,4}$/i.test(v));
+}
+
+if (ip == "") {
+    ip = location.host;
+}
+if (checkIPv6(ip)) {
+    ip = "[" + ip + "]";
+}
+
+//location.href='https://' + ip + '/';   
+window.location.replace("https://" + ip + "/");
+</script>
+</head> 
+</html> 
